@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/notestaker/static/css/main.0073fa5e.chunk.css",
+    "main.js": "/notestaker/static/js/main.db0be455.chunk.js",
+    "runtime-main.js": "/notestaker/static/js/runtime-main.40f44977.js",
+    "static/js/2.5078e2e5.chunk.js": "/notestaker/static/js/2.5078e2e5.chunk.js",
+    "index.html": "/notestaker/index.html",
+    "static/js/2.5078e2e5.chunk.js.LICENSE.txt": "/notestaker/static/js/2.5078e2e5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40f44977.js",
+    "static/js/2.5078e2e5.chunk.js",
+    "static/css/main.0073fa5e.chunk.css",
+    "static/js/main.db0be455.chunk.js"
+  ]
+}
