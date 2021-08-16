@@ -105,3 +105,19 @@ textarea:focus {
 .search input:focus{
   outline: none
 }
+
+/* Footer */
+.footer {
+  text-align: center;
+  background-color: #131A26;
+  padding: 10px;
+}
+
+.footer a{
+  text-decoration: none;
+  color: white;
+}
+
+.footer a span{
+  vertical-align: middle;
+}

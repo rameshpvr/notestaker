@@ -39,17 +39,24 @@ const App = () => {
     setNotes(newNotes);
   }
 
+  const Footer = "footer";
+
   return(
-    <div className={`${darkMode && 'dark-mode'}`}>
-      <div className='container'>
-        <Header handleDarkMode={setdarkMode}/>
-        <Search handleSearchNote={setSearchText}/>
-        <NotesList 
-          notes={notes.filter((note) => note.text.toLowerCase().includes(searchText.toLowerCase()))} 
-          handleAddNote={addnote}
-          handleDeleteNote={deleteNote}
-        />
+    <div>
+      <div className={`${darkMode && 'dark-mode'}`}>
+        <div className='container'>
+          <Header handleDarkMode={setdarkMode}/>
+          <Search handleSearchNote={setSearchText}/>
+          <NotesList 
+            notes={notes.filter((note) => note.text.toLowerCase().includes(searchText.toLowerCase()))} 
+            handleAddNote={addnote}
+            handleDeleteNote={deleteNote}
+          />
+        </div>
       </div>
+      <Footer className="footer">
+        <a href="https://github.com/rameshpvr" target="_blank" rel="noopener noreferrer">-By Ramesh <span><i class="fab fa-github fa-2x"></i></span></a>
+      </Footer>
     </div>
   )
 }
