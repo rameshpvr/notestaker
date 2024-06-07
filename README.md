@@ -7,6 +7,7 @@
   1. `react.js`
   2. `javascript`
   3. `css`
+  4. `TS`
 
 
 # How to run locally 
