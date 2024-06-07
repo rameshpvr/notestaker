@@ -1,0 +1,36 @@
+name: Greetings
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check if user is a new contributor
+        id: check-newbie
+        run: |
+          response=$(curl -s -X GET -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.event.pull_request.user.login }}/permission" | jq -r '.permission')
+          echo ::set-output name=newbie::$(if [[ $response == "none" ]]; then echo "true"; else echo "false"; fi)
+
+      - name: Greet new contributor
+        if: steps.check-newbie.outputs.newbie == 'true'
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-message: |
+            Hi @{{ github.event.pull_request.user.login }}, thank you for your first pull request!
+            Our team will review it shortly.
+      - name: Add comment to pull request
+        if: steps.check-newbie.outputs.newbie == 'true'
+        run: |
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -X POST \
+               -d '{"body":"Thank you for your pull request! Our team will review it soon."}' \
+               https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments
