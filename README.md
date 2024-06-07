@@ -14,6 +14,7 @@
   1. Clone this Repository
   2. Do `npm install` to download the packages.
   3. run `npm start`
+  4. 
 
 ## App Info
 
